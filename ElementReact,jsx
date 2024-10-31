@@ -1,0 +1,21 @@
+let React = require("react");
+
+function createElement(content, tag = 'div', props = {}) {
+  
+  return React.createElement(tag, props, content);
+}
+
+function createUnorderedList(list) { 
+ 
+  const listItems = list.map((item, index) => 
+    React.createElement('li', { key: index }, item)
+  );
+  
+  
+  return React.createElement('ul', null, ...listItems);
+}
+
+
+const greetingElement = createElement('Hello World'); 
+const fruitsListElement = createUnorderedList(['apples', 'oranges', 'bananas']);
+// Creates a <ul><li key="0">apples</li><li key="1">oranges</li><li key="2">bananas</li></ul>
